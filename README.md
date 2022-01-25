@@ -9,6 +9,6 @@ Explore what happens when a go process is updating an `sqlite` database and rece
 * `<ctrl><C>` to kill a program. Perhaps other signals as well.
 * System shutdown. System crash?
 
-The desire is to determine if it is necessary to commit every update of if these can be batch until some time limit is hit, number of records, program exit, etc.
+The desire is to determine if it is necessary to commit every update of if these can be batched until some time limit is hit, number of records, program exit, etc.
 
-Secondary desire is to explore sitnal handling in `go` on Linux.
+Secondary desire is to explore signal handling in `go` on Linux.
