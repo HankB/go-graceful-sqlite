@@ -13,6 +13,12 @@ The desire is to determine if it is necessary to commit every update of if these
 
 Secondary desire is to explore signal handling in `go` on Linux.
 
+## Status
+
+Complete.
+
+At this point I'm satisfied that it seems unlilely that I would lose significant data using this database package in a Go program that exits other than normally.
+
 ## Building
 
 Environment: tested on Debian Bullseye, aarch64 and x86_64.
