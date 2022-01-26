@@ -23,3 +23,14 @@ $EDITOR go-sqlite.go
 go get github.com/mattn/go-sqlite3
 go run .
 ```
+
+Interact with resulting database
+
+```text
+sqlite3 test.db '.schema'
+sqlite3 test.db 'select * from data;'
+```
+
+## Findings
+
+1. If the program is interrupted with `<ctrl>C`, the `defer`red function seems not to be called.
