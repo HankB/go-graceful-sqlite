@@ -14,6 +14,7 @@ func main() {
 	initDataBase("sqlite3", dbName)
 	defer closeDataBase()
 	insertValue(time.Now().Unix())
+	loadLotsOfValues()
 	fmt.Println("hit \"<ctrl>C\" now")
 	time.Sleep(60 * time.Second)
 }
@@ -59,5 +60,12 @@ func insertValue(value int64) {
 	values(?)`, value)
 	if err != nil {
 		log.Fatal(err)
+	}
+}
+
+func loadLotsOfValues() {
+	for i := int64(0); i < 10000; i++ {
+		insertValue(i)
+		fmt.Println(i) // 10 (1+2+3+4)
 	}
 }
