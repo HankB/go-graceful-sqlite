@@ -31,6 +31,11 @@ sqlite3 test.db '.schema'
 sqlite3 test.db 'select * from data;'
 ```
 
+## Strategy
+
+Keep 'pushing' on the program, trying to identify a situation where data written to the database can be lost and then tyr to mitigate that.
+
 ## Findings
 
-1. If the program is interrupted with `<ctrl>C`, the `defer`red function seems not to be called.
+1. If the program is interrupted with `<ctrl>C`, (during sleep following DB creation) the deferred function seems not to be called but the DB is created.
+1. Writing a row to the DB and killing the program with `<ctrl>C` leaves the DB with the row just written.

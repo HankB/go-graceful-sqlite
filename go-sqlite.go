@@ -13,6 +13,7 @@ import (
 func main() {
 	initDataBase("sqlite3", dbName)
 	defer closeDataBase()
+	insertValue(time.Now().Unix())
 	fmt.Println("hit \"<ctrl>C\" now")
 	time.Sleep(60 * time.Second)
 }
@@ -51,4 +52,12 @@ func initDataBase(flavor, location string) {
 func closeDataBase() {
 	fmt.Println("closing database")
 	db.Close()
+}
+
+func insertValue(value int64) {
+	_, err = db.Exec(`insert into data (value) 
+	values(?)`, value)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
