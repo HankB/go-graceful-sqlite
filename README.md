@@ -12,3 +12,14 @@ Explore what happens when a go process is updating an `sqlite` database and rece
 The desire is to determine if it is necessary to commit every update of if these can be batched until some time limit is hit, number of records, program exit, etc.
 
 Secondary desire is to explore signal handling in `go` on Linux.
+
+## Building
+
+After not having coded in `go` for about 4 years, I find I need to learn the build process all over again. Looks like the `sqlite3` library I used before is still maintained and comes up first in a search.
+
+```text
+go mod init go-sqlite
+$EDITOR go-sqlite.go
+go get github.com/mattn/go-sqlite3
+go run .
+```
