@@ -15,6 +15,8 @@ Secondary desire is to explore signal handling in `go` on Linux.
 
 ## Building
 
+Environment: tested on Debian Bullseye, aarch64 and x86_64.
+
 After not having coded in `go` for about 4 years, I find I need to learn the build process all over again. Looks like the `sqlite3` library I used before is still maintained and comes up first in a search.
 
 ```text
@@ -39,3 +41,7 @@ Keep 'pushing' on the program, trying to identify a situation where data written
 
 1. If the program is interrupted with `<ctrl>C`, (during sleep following DB creation) the deferred function seems not to be called but the DB is created.
 1. Writing a row to the DB and killing the program with `<ctrl>C` leaves the DB with the row just written.
+
+## Errata
+
+The sqlite3 package is not required to build and run but may be convenient to examine the resulting database.
