@@ -41,6 +41,8 @@ Keep 'pushing' on the program, trying to identify a situation where data written
 
 1. If the program is interrupted with `<ctrl>C`, (during sleep following DB creation) the deferred function seems not to be called but the DB is created.
 1. Writing a row to the DB and killing the program with `<ctrl>C` leaves the DB with the row just written.
+1. Looping over database writes (and console prints) it seems like no updates are lost. If the value is printed before the insert operation, the insert operation does not reflect the last value printed, but it is not clear if this is because the insert operation did not commit or if it never got called.
+1. Shutting down the host (`shutdown -r now`) seems to not cause loss of data. Tested on a Prapberry Pi 4B. Last number seen in a terminal window was 117. Last value in the database was 122. Saw similar result with Gnome disabled, running from a text login and hitting <ctrl><alt><del> for a quicker (?) shutdown.
 
 ## Errata
 
