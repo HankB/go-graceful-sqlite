@@ -5,12 +5,16 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"time"
 
 	_ "github.com/mattn/go-sqlite3"
 )
 
 func main() {
 	initDataBase("sqlite3", dbName)
+	defer closeDataBase()
+	fmt.Println("hit \"<ctrl>C\" now")
+	time.Sleep(60 * time.Second)
 }
 
 var dbName = "test.db"
@@ -42,4 +46,9 @@ func initDataBase(flavor, location string) {
 		log.Fatal(err)
 	}
 	fmt.Println("created table \"data\"")
+}
+
+func closeDataBase() {
+	fmt.Println("closing database")
+	db.Close()
 }
